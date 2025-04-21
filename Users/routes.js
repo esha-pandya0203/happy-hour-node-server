@@ -12,7 +12,7 @@ export default function UserRoutes(app) {
   });
 
   app.get("/api/users/:userId", async (req, res) => {
-    const user = await dao.findUserById(req.params.uderId);
+    const user = await dao.findUserById(req.params.userId);
     res.json(user);
   });
 

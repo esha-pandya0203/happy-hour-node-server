@@ -5,7 +5,7 @@ import session from "express-session";
 import "dotenv/config";
 import UserRoutes from "./Users/routes.js";
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/happy-hour"
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/happyHour"
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
