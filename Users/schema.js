@@ -8,13 +8,14 @@ const userSchema = new mongoose.Schema(
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     age: { type: Number, required: true },
-    email: { type: String, required: true, unique: true },
+    email: String,
+    bio: String, 
     role: {
       type: String,
       enum: ["over21", "under21"], 
       default: "under21",
     },
-    savedDrinks: [{ type: String, ref: "Drink" }], 
+    savedDrinks: [String], 
   },
   { collection: "users" }
 );
