@@ -4,6 +4,7 @@ import cors from "cors";
 import session from "express-session";
 import "dotenv/config";
 import UserRoutes from "./Users/routes.js";
+import FollowRoutes from "./Follows/routes.js";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/happyHour"
 mongoose.connect(CONNECTION_STRING);
@@ -12,7 +13,7 @@ const app = express();
 app.use(
   cors({
     credentials: true, // support cookies
-    origin: process.env.NETLIFY_URL || "http://localhost:5173", // restrict cross origin resource sharing to react application
+    origin: process.env.NETLIFY_URL || "http://localhost:5174", // restrict cross origin resource sharing to react application
   })
 );
 
@@ -35,5 +36,6 @@ app.use(session(sessionOptions));
 app.use(express.json());
 
 UserRoutes(app); 
+FollowRoutes(app); 
 
 app.listen(process.env.PORT || 4000);
